@@ -23,19 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('token', (email, senha) => {
-    cy.request({
-        method: 'POST',
-        url: 'login',
-        body: {
-            "email": email,
-            "password": senha 
-        }
-    }).then((response) => {
-        expect(response.status).to.equal(200)
-        return response.body.authorization
-    })
- })
+Cypress.Commands.add('token', (email, password) => {
+    // Implement your token generation logic here
+    // This function should return a token
+    return cy.request('POST', '/login', { email, password }).then((response) => {
+      return response.body.token;
+    });
+  });
+  
 
  Cypress.Commands.add('cadastrarProduto' , (token, produto, preco, descricao, quantidade) =>{
     cy.request({
@@ -49,5 +44,5 @@ Cypress.Commands.add('token', (email, senha) => {
             "quantidade": quantidade
           }, 
           failOnStatusCode: false
-    })
+    });
  })

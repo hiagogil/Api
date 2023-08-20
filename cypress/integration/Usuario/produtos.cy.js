@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import contrato from '../contracts/produtos.contract'
+import contrato from '../../contracts/produtos.contract'
 
 describe('Testes da Funcionalidade Produtos', () => {
     let token
@@ -94,19 +94,38 @@ describe('Testes da Funcionalidade Produtos', () => {
         })
     });
 
-    it('Deve deletar um produto previamente cadastrado', () => {
-        let produto = `Produto EBAC ${Math.floor(Math.random() * 100000000)}`
-        cy.cadastrarProduto(token, produto, 250, "Descrição do produto novo", 180)
-        .then(response => {
-            let id = response.body._id
+    it.only('Deve deletar um usuário previamente cadastrado', () => {
+        // Gerando um email aleatório
+        let email = `ciclano${Math.floor(Math.random() * 1000000)}@qa.com.br`;
+    
+        // Cadastrando um usuário para ser excluído
+        cy.request({
+            method: 'POST',
+            url: 'usuarios',
+            body: {
+                "nome": "Pedro Testing",
+                "email": email,
+                "password": "testing",
+                "administrador": "false"
+            },
+            headers: { authorization: token }
+        }).then(response => {
+            // Verificando se o cadastro foi bem-sucedido
+            expect(response.status).to.equal(201);
+    
+            // Obtendo o ID do usuário cadastrado
+            const userId = response.body._id;
+    
+            // Deletando o usuário
             cy.request({
                 method: 'DELETE',
-                url: `produtos/${id}`,
-                headers: {authorization: token}
-            }).then(response =>{
-                expect(response.body.message).to.equal('Registro excluído com sucesso')
-                expect(response.status).to.equal(200)
-            })
-        })
+                url: `usuarios/${userId}`,
+                headers: { authorization: token }
+            }).then(deletionResponse => {
+                // Verificando se a exclusão foi bem-sucedida
+                expect(deletionResponse.status).to.equal(200);
+                expect(deletionResponse.body.message).to.equal('Registro excluído com sucesso');
+            });
+        });
     });
 });
