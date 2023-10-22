@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>produtos.contract.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "cypress\\contracts\\produtos.contract.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>produtos.contract.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">const</span> Joi = <span class="hljs-built_in">require</span> (<span class="hljs-string">'joi'</span>)
+
+
+
+<span class="hljs-keyword">const</span> usuariosSchema = Joi.object({
+    <span class="hljs-attr">usuarios</span>: Joi.array().items(Joi.object({
+        <span class="hljs-attr">nome</span>: Joi.string(),
+        <span class="hljs-attr">email</span>: Joi.string(),
+        <span class="hljs-attr">password</span>: Joi.string(),
+        <span class="hljs-attr">administrador</span>: Joi.boolean()
+    }))
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> usuariosSchema;
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

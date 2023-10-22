@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>README.md</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "";
+    var thisFile = "README.md";
+    var defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+      <div class="heading h1">
+        <a href="#testes-api-ebac">Testes API - EBAC</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#exercicio-para-os-alunos-de-qualidade-de-software-da-ebac">Exercício para os alunos de Qualidade de software da EBAC</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#clonando-e-executando-em-sua-maquina">Clonando e executando em sua máquina</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#pre-requisito">Pré-requisito:</a>
+      </div>
+
+      <div class="heading h4">
+        <a href="#para-instalar-as-dependencias">Para instalar as dependencias:</a>
+      </div>
+
+      <div class="heading h4">
+        <a href="#para-subir-o-servidor">Para subir o servidor:</a>
+      </div>
+
+      <div class="heading h4">
+        <a href="#para-executar-em-moodo-headlesss-via-console">Para executar em moodo Headlesss via console:</a>
+      </div>
+
+      <div class="heading h4">
+        <a href="#para-executar-via-dashboard">Para executar via Dashboard:</a>
+      </div>
+
+      <div class="heading h4">
+        <a href="#para-criar-o-relatorio-do-mocha">Para criar o relatório do mocha:</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#bibliotecas-de-apoio">Bibliotecas de apoio:</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#bom-exercicio">Bom exercício ;</a>
+      </div>
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="docs markdown"><div class="pilwrap" id="testes-api-ebac">
+  <h1>
+    <a href="#testes-api-ebac" name="testes-api-ebac" class="pilcrow"></a>
+Testes API - EBAC
+  </h1>
+</div>
+<div class="pilwrap" id="exercicio-para-os-alunos-de-qualidade-de-software-da-ebac">
+  <h3>
+    <a href="#exercicio-para-os-alunos-de-qualidade-de-software-da-ebac" name="exercicio-para-os-alunos-de-qualidade-de-software-da-ebac" class="pilcrow"></a>
+Exercício para os alunos de Qualidade de software da EBAC
+  </h3>
+</div>
+<div class="pilwrap" id="clonando-e-executando-em-sua-maquina">
+  <h2>
+    <a href="#clonando-e-executando-em-sua-maquina" name="clonando-e-executando-em-sua-maquina" class="pilcrow"></a>
+Clonando e executando em sua máquina
+  </h2>
+</div>
+<div class="pilwrap" id="pre-requisito">
+  <h3>
+    <a href="#pre-requisito" name="pre-requisito" class="pilcrow"></a>
+Pré-requisito:
+  </h3>
+</div>
+<p>-Node.js - Você encontra em: https://nodejs.org/en/</p>
+<p>-Visual Studio Code ou qualquer editor de texto - você encontra em: https://code.visualstudio.com/download</p>
+<p>-Git: você encontra em: https://git-scm.com/downloads</p>
+<p>Via terminal, rode os seguintes comandos:</p>
+<pre><code>git clone https://github.com/EBAC-QE/testes-api-cy.git
+</code></pre>
+<pre><code>cd testes-api-cy
+</code></pre>
+<div class="pilwrap" id="para-instalar-as-dependencias">
+  <h4>
+    <a href="#para-instalar-as-dependencias" name="para-instalar-as-dependencias" class="pilcrow"></a>
+Para instalar as dependencias:
+  </h4>
+</div>
+<pre><code>npm install 
+</code></pre>
+<div class="pilwrap" id="para-subir-o-servidor">
+  <h4>
+    <a href="#para-subir-o-servidor" name="para-subir-o-servidor" class="pilcrow"></a>
+Para subir o servidor:
+  </h4>
+</div>
+<pre><code>npm start
+</code></pre>
+<div class="pilwrap" id="para-executar-em-moodo-headlesss-via-console">
+  <h4>
+    <a href="#para-executar-em-moodo-headlesss-via-console" name="para-executar-em-moodo-headlesss-via-console" class="pilcrow"></a>
+Para executar em moodo Headlesss via console:
+  </h4>
+</div>
+<pre><code>npx cypress run
+</code></pre>
+<div class="pilwrap" id="para-executar-via-dashboard">
+  <h4>
+    <a href="#para-executar-via-dashboard" name="para-executar-via-dashboard" class="pilcrow"></a>
+Para executar via Dashboard:
+  </h4>
+</div>
+<pre><code>npx cypress open 
+</code></pre>
+<p>Após abrir o dasboard, clique na opção &quot;Running integration tests&quot; para rodar todos os testes.</p>
+<div class="pilwrap" id="para-criar-o-relatorio-do-mocha">
+  <h4>
+    <a href="#para-criar-o-relatorio-do-mocha" name="para-criar-o-relatorio-do-mocha" class="pilcrow"></a>
+Para criar o relatório do mocha:
+  </h4>
+</div>
+<pre><code>npm run cy:run
+</code></pre>
+<pre><code>npm run cy:report 
+</code></pre>
+<div class="pilwrap" id="bibliotecas-de-apoio">
+  <h3>
+    <a href="#bibliotecas-de-apoio" name="bibliotecas-de-apoio" class="pilcrow"></a>
+Bibliotecas de apoio:
+  </h3>
+</div>
+<p>-Cypress: Framework de automação: https://cypress.io/</p>
+<div class="pilwrap" id="bom-exercicio">
+  <h3>
+    <a href="#bom-exercicio" name="bom-exercicio" class="pilcrow"></a>
+Bom exercício ;
+  </h3>
+</div>
+<p>Fábio &amp; José Ernesto
+Qualidade de software</p>
+</div>
+  </div>
+</body>
+</html>

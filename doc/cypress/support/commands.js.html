@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>commands.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "cypress\\support\\commands.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>commands.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<hr>
+<p>This example commands.js shows you how to
+create various custom commands and overwrite
+existing commands.</p>
+<p>For more comprehensive examples of custom
+commands please read more here:
+https://on.cypress.io/custom-commands</p>
+<hr>
+<p>-- This is a parent command --
+Cypress.Commands.add('login', (email, password) =&gt; { ... })</p>
+<p>-- This is a child command --
+Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) =&gt; { ... })</p>
+<p>-- This is a dual command --
+Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) =&gt; { ... })</p>
+<p>-- This will overwrite an existing command --
+Cypress.Commands.overwrite('visit', (originalFn, url, options) =&gt; { ... })</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Cypress.Commands.add(<span class="hljs-string">'token'</span>, (email, password) =&gt; {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>Implement your token generation logic here
+This function should return a token</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">return</span> cy.request(<span class="hljs-string">'POST'</span>, <span class="hljs-string">'/login'</span>, { email, password }).then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+      <span class="hljs-keyword">return</span> response.body.token;
+    });
+  });
+  
+
+ Cypress.Commands.add(<span class="hljs-string">'cadastrarProduto'</span> , (token, produto, preco, descricao, quantidade) =&gt;{
+    cy.request({
+        <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>, 
+        <span class="hljs-attr">url</span>: <span class="hljs-string">'produtos'</span>,
+        <span class="hljs-attr">headers</span>: {<span class="hljs-attr">authorization</span>: token}, 
+        <span class="hljs-attr">body</span>: {
+            <span class="hljs-string">"nome"</span>: produto,
+            <span class="hljs-string">"preco"</span>: preco,
+            <span class="hljs-string">"descricao"</span>: descricao,
+            <span class="hljs-string">"quantidade"</span>: quantidade
+          }, 
+          <span class="hljs-attr">failOnStatusCode</span>: <span class="hljs-literal">false</span>
+    });
+  
+    Cypress.Commands.add(<span class="hljs-string">"cadastrarUsuario"</span>, (<span class="hljs-literal">true</span>, email, nome, senha, token) =&gt;{
+      cy.request({
+        <span class="hljs-attr">method</span>: <span class="hljs-string">'PUT'</span>,
+        <span class="hljs-attr">url</span>: <span class="hljs-string">`/usuarios/<span class="hljs-subst">${firstUsuarioId}</span>`</span>, 
+        <span class="hljs-attr">body</span>: {
+            <span class="hljs-attr">administrador</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">email</span>: email,
+            <span class="hljs-attr">nome</span>:  nome,
+            <span class="hljs-attr">password</span>: senha },
+        <span class="hljs-attr">headers</span>: { <span class="hljs-attr">authorization</span>: token }
+    )}
+ })
+
+ 
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

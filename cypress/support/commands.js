@@ -45,4 +45,18 @@ Cypress.Commands.add('token', (email, password) => {
           }, 
           failOnStatusCode: false
     });
+  
+    Cypress.Commands.add("cadastrarUsuario", (true, email, nome, senha, token) =>{
+      cy.request({
+        method: 'PUT',
+        url: `/usuarios/${firstUsuarioId}`, 
+        body: {
+            administrador: true,
+            email: email,
+            nome:  nome,
+            password: senha },
+        headers: { authorization: token }
+    )}
  })
+
+ 
