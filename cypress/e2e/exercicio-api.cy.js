@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import contrato from '../../contracts/produtos.contract';
 import '../../support/commands';
 

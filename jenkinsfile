@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clonar o repositório') {
+            steps {
+                git branch: 'main', url: 'https://github.com/hiagogil/Api.git'
+            }
+        }
+
+        stage('Instalar dependências') {
+            steps {
+                bat 'npm install --prefix.'
+            }
+        }
+
+         stage('Executando serverest') {
+            steps {
+                bat 'npx serverest --prefix.'
+            }
+        }
+
+        stage('Executar teste') {
+            steps {
+                bat 'npm run cy:run --prefix.'
+            }
+        }
+    }
+}
